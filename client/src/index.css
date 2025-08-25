@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Custom Utilities */
+.gradient-text {
+  @apply bg-gradient-to-r from-red-400 to-cyan-400 bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-red-400 to-cyan-400;
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:bg-white/10 hover:shadow-xl hover:scale-[1.02];
+}
+
+/* Custom background for the body */
+body {
+  @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-white;
+}
