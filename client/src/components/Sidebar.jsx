@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Github,
-  Globe
-} from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 
 const Sidebar = () => {
   const [displayName, setDisplayName] = useState("");
@@ -34,7 +27,12 @@ const Sidebar = () => {
       value: "buschdiana007@gmail.com",
       type: "email",
     },
-    { icon: Phone, label: "PHONE", value: "+1 928-830-1079", type: "phone" },
+    {
+      icon: Phone,
+      label: "PHONE",
+      value: "+1 928-830-1079",
+      type: "phone",
+    },
     {
       icon: MapPin,
       label: "LOCATION",
@@ -124,7 +122,18 @@ const Sidebar = () => {
             </div>
             <div>
               <div className="text-xs text-gray-400">{item.label}</div>
-              <div className="text-sm">{item.value}</div>
+              <div className="text-sm">
+                {item.type === "phone" ? (
+                  <a
+                    href={`tel:${item.value.replace(/[^+\d]/g, "")}`}
+                    className=""
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  item.value
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
