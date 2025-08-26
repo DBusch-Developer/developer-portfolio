@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/vite": "^4.1.12",
+    "dotenv": "^17.2.1",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.541.0",
     "postcss": "^8.5.6",
