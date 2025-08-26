@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "./components/Sidebar";
 import Navigation from "./components/Navigation";
 import About from "./pages/About";
+import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import "./App.css";
 
@@ -13,6 +14,8 @@ function App() {
     switch (activeSection) {
       case "about":
         return <About />;
+      case "resume":
+        return <Resume />;
       case "contact":
         return <Contact />;
       default:
