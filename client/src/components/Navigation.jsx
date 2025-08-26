@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 const Navigation = ({ activeSection, setActiveSection }) => {
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'portfolio', label: 'Portfolio' },
     { id: 'resume', label: 'Resume' },
+    { id: 'portfolio', label: 'Portfolio' },
     { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ]
