@@ -1,6 +1,7 @@
 import pdfdoc from "../assets/Diana-Busch-Resume.pdf";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Download } from "lucide-react";
+import Button from "../components/Button"; // Import the new Button component
 
 const Resume = () => {
   // Function to calculate months between start date and present
@@ -236,23 +237,22 @@ const Resume = () => {
         </div>
       </motion.div>
 
-      {/* Download Button */}
+      {/* Download Button - Using the new Button component */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8 }}
         className="text-center"
       >
-        <motion.a
+        <Button
           href={pdfdoc}
           download
-          className="gradient-bg text-white px-8 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
-          whileHover={{ scale: 1.05, y: -3 }}
-          whileTap={{ scale: 0.95 }}
+          icon={Download}
+          size="medium"
+          variant="primary"
         >
-          <Download size={20} />
           Download Resume
-        </motion.a>
+        </Button>
       </motion.div>
     </div>
   );
