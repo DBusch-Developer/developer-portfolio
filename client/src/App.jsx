@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "./components/Sidebar";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
@@ -50,6 +51,7 @@ function App() {
                 {renderSection()}
               </motion.div>
             </AnimatePresence>
+            <Footer />
           </main>
         </div>
       </div>
