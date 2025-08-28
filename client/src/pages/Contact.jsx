@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import Button from "../components/Button"; // Import the new Button component
 
 const Contact = () => {
   const form = useRef();
@@ -26,6 +27,8 @@ const Contact = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
     emailjs
       .sendForm(serviceId, templateId, form.current, {
         publicKey: publicKey,
@@ -52,6 +55,12 @@ const Contact = () => {
   const inputVariants = {
     focus: { scale: 1.02, transition: { type: "spring", stiffness: 300 } },
     blur: { scale: 1 },
+  };
+
+  const getButtonState = () => {
+    if (isSubmitted) return "success";
+    if (isSubmitting) return "loading";
+    return "normal";
   };
 
   return (
@@ -194,46 +203,17 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
           >
-            <motion.button
+            <Button
               type="submit"
+              state={getButtonState()}
+              icon={Send}
+              successIcon={CheckCircle}
+              loadingText="Sending..."
+              successText="Message Sent!"
               disabled={isSubmitting || isSubmitted}
-              className={`w-full md:w-auto px-8 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 ${
-                isSubmitted
-                  ? "bg-gradient-to-r from-green-400 to-teal-500 text-white"
-                  : isSubmitting
-                  ? "bg-blue-500 text-white"
-                  : "gradient-bg text-white hover:scale-105"
-              }`}
-              whileHover={
-                !isSubmitting && !isSubmitted ? { scale: 1.05, y: -3 } : {}
-              }
-              whileTap={!isSubmitting && !isSubmitted ? { scale: 0.95 } : {}}
             >
-              {isSubmitted ? (
-                <>
-                  <CheckCircle size={20} />
-                  Message Sent!
-                </>
-              ) : isSubmitting ? (
-                <>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                  />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send size={20} />
-                  Send Message
-                </>
-              )}
-            </motion.button>
+              Send Message
+            </Button>
           </motion.div>
         </form>
       </motion.div>
