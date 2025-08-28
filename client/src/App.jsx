@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import Navigation from "./components/Navigation";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
+import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import "./App.css";
@@ -17,6 +18,8 @@ function App() {
         return <About />;
       case "resume":
         return <Resume />;
+      case "projects":
+        return <Projects />;
       case "blog":
         return <Blog />;
       case "contact":
