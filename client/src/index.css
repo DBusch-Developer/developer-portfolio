@@ -2,24 +2,87 @@
 
 /* Custom Utilities */
 
-  body {
-    @apply bg-gradient-to-br from-gray-900 to-gray-800 text-white;
-  }
+body {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 text-white;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
 
 .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-red-400 to-cyan-400 bg-clip-text text-transparent;
-  }
-  
-  .gradient-bg {
-    @apply bg-gradient-to-r from-red-400 to-cyan-400;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
-  }
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
 
- 
+.gradient-text {
+  @apply bg-gradient-to-r from-red-400 to-cyan-400 bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-red-400 to-cyan-400;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
+}
+
+/* Page transition effects */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Mobile-specific utilities */
+.mobile-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-container {
+  @apply px-4 mx-auto max-w-screen-sm;
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    @apply p-3 touch-manipulation;
+  }
+  
+  /* Prevent zoom on input focus for iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Better mobile scroll */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
