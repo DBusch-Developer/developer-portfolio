@@ -9,12 +9,29 @@ const Navigation = ({ activeSection, setActiveSection }) => {
     { id: 'contact', label: 'Contact' },
   ]
 
+  const handleSectionChange = (sectionId) => {
+    if (sectionId !== activeSection) {
+      // Smooth scroll to top with easing
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+      
+      // Small delay to start the scroll animation first, then change content
+      setTimeout(() => {
+        setActiveSection(sectionId);
+      }, 100);
+    }
+  };
+
   return (
-    <nav className="glass rounded-2xl p-2 mb-8 flex flex-wrap gap-2">
+    // Hide on mobile, show on desktop
+    <nav className="glass rounded-2xl p-2 mb-8 flex-wrap gap-2 hidden md:flex">
       {navItems.map((item) => (
         <motion.button
           key={item.id}
-          onClick={() => setActiveSection(item.id)}
+          onClick={() => handleSectionChange(item.id)}
           className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
             activeSection === item.id
               ? 'gradient-bg text-white shadow-lg'

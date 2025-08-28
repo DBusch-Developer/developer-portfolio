@@ -112,4 +112,93 @@
           mask-composite: xor;
           animation: gradientShift 3s ease infinite;
         }
-     
+
+        /* Mobile Safe Area Support */
+        .safe-area-pb {
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+          body {
+            overflow-x: hidden;
+          }
+          
+          .mobile-content {
+            padding-bottom: calc(80px + env(safe-area-inset-bottom));
+          }
+          
+          /* Ensure mobile navigation is above other content */
+          .mobile-nav {
+            z-index: 1000;
+          }
+          
+          /* Enhanced smooth scrolling for mobile */
+          html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+          }
+          
+          /* Custom smooth scrolling with easing */
+          * {
+            scroll-behavior: smooth;
+          }
+          
+          /* Prevent horizontal scrolling issues */
+          * {
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+        }
+        
+        /* Enhanced smooth scrolling for all devices */
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(45deg, #ef4444, #22d3ee);
+          border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(45deg, #dc2626, #0891b2);
+        }
+        
+        /* Mobile touch improvements */
+        @media (hover: none) and (pointer: coarse) {
+          .card-hover:hover {
+            transform: none;
+          }
+          
+          .contact-item-hover:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.05);
+          }
+        }
+        
+        /* iOS Safari specific fixes */
+        @supports (-webkit-appearance: none) {
+          .mobile-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+          }
+        }
+        
+        /* Android Chrome specific fixes */
+        @media screen and (max-width: 768px) {
+          .glass {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+          }
+        }
