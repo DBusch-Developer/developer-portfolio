@@ -1,17 +1,25 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import projects from '../data/Projects'
+import FilterDropdown from '../components/FilterDropdown'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const filters = ['All', 'Applications', 'Web Development', 'UI/UX']
-
-  
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeFilter)
+
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter)
+  }
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen)
+  }
 
   return (
     <div>
@@ -29,29 +37,14 @@ const Projects = () => {
         />
       </motion.h2>
 
-      {/* Filter Tabs */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="glass rounded-2xl p-2 mb-8 flex flex-wrap gap-2"
-      >
-        {filters.map((filter) => (
-          <motion.button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
-            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-              activeFilter === filter
-                ? 'gradient-bg text-white shadow-lg'
-                : 'text-gray-300 hover:bg-white/10 hover:text-white'
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {filter}
-          </motion.button>
-        ))}
-      </motion.div>
+      {/* Filter Dropdown */}
+      <FilterDropdown
+        isOpen={isDropdownOpen}
+        onToggle={toggleDropdown}
+        selectedFilter={activeFilter}
+        onFilterChange={handleFilterChange}
+        filters={filters}
+      />
 
       {/* Projects Grid */}
       <motion.div
