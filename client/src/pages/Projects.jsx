@@ -41,7 +41,7 @@ const Projects = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl font-bold mb-6 gradient-text relative"
       >
-        Portfolio
+        Projects
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: 60 }}
