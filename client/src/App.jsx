@@ -62,7 +62,7 @@ function App() {
       <div className="min-h-screen p-4 md:p-10">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
           <Sidebar />
-          <main className="flex-1 glass rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl mb-20 md:mb-0">
+          <main className="flex-1 glass rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl mb-20 md:mb-0 relative">
             <Navigation
               activeSection={activeSection}
               setActiveSection={setActiveSection}
