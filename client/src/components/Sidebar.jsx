@@ -9,7 +9,6 @@ import {
   Globe,
   ChevronDown,
 } from "lucide-react";
-import avatarImage from "../assets/avatar.jpg";
 
 const Sidebar = () => {
   const [displayName, setDisplayName] = useState("");
@@ -161,7 +160,7 @@ const Sidebar = () => {
                 className={`rounded-full object-cover ${
                   isMobile ? "w-20 h-20" : "w-28 h-28"
                 }  transition-transform duration-300`}
-                src={avatarImage}
+                src="/assets/avatar.jpg"
                 alt="Diana Busch - Click to view professional photo"
                 title="Click to view professional photo"
               />
