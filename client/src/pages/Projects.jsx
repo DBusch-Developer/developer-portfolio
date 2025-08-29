@@ -22,6 +22,18 @@ const Projects = () => {
     setIsDropdownOpen(!isDropdownOpen)
   }
 
+  // Container animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  }
+
   return (
     <div>
       <motion.h2
@@ -76,12 +88,15 @@ const Projects = () => {
       {/* Projects Grid */}
       <motion.div
         layout
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {filteredProjects.map((project, index) => (
             <ProjectCard 
-              key={project.title} 
+              key={`${activeFilter}-${project.title}`} 
               project={project} 
               index={index} 
             />
@@ -91,11 +106,18 @@ const Projects = () => {
 
       {filteredProjects.length === 0 && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
           className="text-center py-12 text-gray-400"
         >
-          <div className="text-4xl mb-4">🔍</div>
+          <motion.div 
+            className="text-4xl mb-4"
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            🔍
+          </motion.div>
           <p>No projects found in this category</p>
         </motion.div>
       )}
