@@ -32,6 +32,21 @@ html {
   @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
 }
 
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Page transition effects */
 .page-transition-enter {
   opacity: 0;

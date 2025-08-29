@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import projects from '../data/Projects'
 import FilterDropdown from '../components/FilterDropdown'
+import ProjectCard from '../components/ProjectCard'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -79,53 +80,11 @@ const Projects = () => {
       >
         <AnimatePresence>
           {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ 
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100
-              }}
-              className="glass rounded-2xl overflow-hidden card-hover group"
-              whileHover={{ y: -10 }}
-            >
-              {/* Project Image/Icon */}
-              <div className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <motion.div
-                  className="text-6xl"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  {project.icon}
-                </motion.div>
-                <motion.div
-                  className="absolute inset-0 bg-black/20"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-white group-hover:gradient-text transition-all">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                <motion.div
-                  className="mt-4 inline-block px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {project.category}
-                </motion.div>
-              </div>
-            </motion.div>
+            <ProjectCard 
+              key={project.title} 
+              project={project} 
+              index={index} 
+            />
           ))}
         </AnimatePresence>
       </motion.div>
