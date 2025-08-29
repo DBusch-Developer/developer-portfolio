@@ -45,12 +45,7 @@ const Sidebar = () => {
 
   // Handle avatar click to open professional photo in new tab
   const handleAvatarClick = () => {
-    // Option 1: Direct public URL (requires file in public/assets/)
     const professionalPhotoUrl = "/assets/headshot.jpg";
-    
-    // Option 2: If you keep it in src/assets/, use this instead:
-    // const professionalPhotoUrl = new URL('../assets/headshot.jpg', import.meta.url).href;
-    
     window.open(professionalPhotoUrl, '_blank', 'noopener,noreferrer');
   };
 
