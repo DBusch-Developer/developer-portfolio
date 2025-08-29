@@ -37,14 +37,40 @@ const Projects = () => {
         />
       </motion.h2>
 
-      {/* Filter Dropdown */}
-      <FilterDropdown
-        isOpen={isDropdownOpen}
-        onToggle={toggleDropdown}
-        selectedFilter={activeFilter}
-        onFilterChange={handleFilterChange}
-        filters={filters}
-      />
+      {/* Filter Tabs - Desktop/Web View */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="glass rounded-2xl p-2 mb-8 hidden md:flex flex-wrap gap-2"
+      >
+        {filters.map((filter) => (
+          <motion.button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+              activeFilter === filter
+                ? 'gradient-bg text-white shadow-lg'
+                : 'text-gray-300 hover:bg-white/10 hover:text-white'
+            }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {filter}
+          </motion.button>
+        ))}
+      </motion.div>
+
+      {/* Filter Dropdown - Mobile View */}
+      <div className="md:hidden mb-8">
+        <FilterDropdown
+          isOpen={isDropdownOpen}
+          onToggle={toggleDropdown}
+          selectedFilter={activeFilter}
+          onFilterChange={handleFilterChange}
+          filters={filters}
+        />
+      </div>
 
       {/* Projects Grid */}
       <motion.div
