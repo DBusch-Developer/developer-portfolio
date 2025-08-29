@@ -18,16 +18,16 @@ const ProjectCard = ({ project, index }) => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
       transition={{ 
-        delay: index * 0.1,
-        type: "spring",
-        stiffness: 100
+        duration: 0.4,
+        ease: "easeOut",
+        layout: { duration: 0.3 }
       }}
       className="glass rounded-2xl overflow-hidden card-hover group relative"
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -8, transition: { duration: 0.2 } }}
     >
       {/* Project Screenshot Area */}
       <div className="h-48 relative overflow-hidden bg-gray-800">
@@ -134,9 +134,9 @@ const ProjectCard = ({ project, index }) => {
             {project.technologies.slice(0, 4).map((tech, techIndex) => (
               <motion.span
                 key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 + techIndex * 0.05 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 + techIndex * 0.05 }}
                 className="px-2 py-1 bg-white/5 rounded-md text-xs text-cyan-400 border border-cyan-400/20 hover:bg-cyan-400/10 transition-colors duration-200"
               >
                 {tech}
@@ -144,9 +144,9 @@ const ProjectCard = ({ project, index }) => {
             ))}
             {project.technologies.length > 4 && (
               <motion.span
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 + 0.2 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
                 className="px-2 py-1 bg-white/5 rounded-md text-xs text-gray-400 border border-gray-400/20"
                 title={`Also uses: ${project.technologies.slice(4).join(', ')}`}
               >
