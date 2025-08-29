@@ -48,7 +48,7 @@ const Projects = () => {
           <motion.button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
               activeFilter === filter
                 ? 'gradient-bg text-white shadow-lg'
                 : 'text-gray-300 hover:bg-white/10 hover:text-white'

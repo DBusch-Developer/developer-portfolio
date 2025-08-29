@@ -32,7 +32,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
         <motion.button
           key={item.id}
           onClick={() => handleSectionChange(item.id)}
-          className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+          className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
             activeSection === item.id
               ? 'gradient-bg text-white shadow-lg'
               : 'text-gray-300 hover:bg-white/10 hover:text-white'
