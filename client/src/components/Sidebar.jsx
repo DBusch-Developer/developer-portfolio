@@ -174,7 +174,7 @@ const Sidebar = () => {
               background: "linear-gradient(45deg, #ef4444, #06b6d4)",
               WebkitMask:
                 "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-              WebkitMaskComposite: "exclude",
+              WebkitMaskComposite: "xor",
             }}
             animate={{ rotate: 360 }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
