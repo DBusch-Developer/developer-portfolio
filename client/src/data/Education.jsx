@@ -1,16 +1,16 @@
- const education = [
-    {
-      title: "Persevere Coding Bootcamp",
-      subtitle: "Full Stack Web Developer Certification",
-      period: "July 2024- July 2025",
-      type: "certification",
-    },
-    {
-      title: "Rio Salado Community College",
-      subtitle: "Associate of Arts Degree",
-      period: "Aug. 2023- May 2025",
-      type: "degree",
-    },
-  ];
+const education = [
+  {
+    title: "Bachelor of Science in Computer Science",
+    subtitle: "Yavapai College",
+    period: "Jan. 2026 - Expected Jan. 2028",
+    type: "degree",
+  },
+  {
+    title: "Persevere Coding Bootcamp",
+    subtitle: "Full Stack Web Developer Certification",
+    period: "July 2024- July 2025",
+    type: "certification",
+  },
+];
 
 export default education;
