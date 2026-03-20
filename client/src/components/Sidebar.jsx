@@ -86,7 +86,7 @@ const Sidebar = () => {
       icon: Mail,
       label: "EMAIL",
       value: "buschdiana007@gmail.com",
-      href: "https://mail.google.com/mail/?view=cm&to=buschdiana007@gmail.com",
+      href: "mailto:buschdiana007@gmail.com",
       type: "email",
     },
     {
@@ -275,6 +275,15 @@ const Sidebar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
                     delay: isMobile ? 0.1 + index * 0.1 : 2.5 + index * 0.2,
+                  }}
+                  onClick={(e) => {
+                    if (item.type === "email" && !isMobile) {
+                      e.preventDefault();
+                      window.open(
+                        "https://mail.google.com/mail/?view=cm&to=buschdiana007@gmail.com",
+                        "_blank",
+                      );
+                    }
                   }}
                   className="flex items-center p-3 glass rounded-xl transition-all duration-300 group shimmer-effect cursor-pointer hover:bg-white/10"
                 >
