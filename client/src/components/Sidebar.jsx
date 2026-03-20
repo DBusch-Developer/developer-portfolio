@@ -64,7 +64,7 @@ const Sidebar = () => {
   // Contact item click handler with glow effect
   const handleContactItemClick = (e) => {
     // Only add glow effect if not clicking on a link
-    if (!e.target.closest('a') && e.currentTarget) {
+    if (!e.target.closest("a") && e.currentTarget) {
       const element = e.currentTarget; // Capture the element reference
       element.classList.add("glow-effect");
       setTimeout(() => {
@@ -86,18 +86,21 @@ const Sidebar = () => {
       icon: Mail,
       label: "EMAIL",
       value: "buschdiana007@gmail.com",
+      href: "mailto:buschdiana007@gmail.com",
       type: "email",
     },
     {
       icon: Phone,
       label: "PHONE",
       value: "+1 928-830-1079",
+      href: "tel:+19288301079",
       type: "phone",
     },
     {
       icon: MapPin,
       label: "LOCATION",
       value: "Prescott, AZ",
+      href: "https://maps.google.com/?q=Prescott,AZ",
       type: "location",
     },
   ];
@@ -155,9 +158,12 @@ const Sidebar = () => {
           whileTap={{ scale: 0.95 }}
         >
           <div className="w-full h-full rounded-full gradient-bg p-1">
-            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden"
-             style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
-             >
+            <div
+              className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden"
+              style={{
+                WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+              }}
+            >
               <img
                 className={`rounded-full object-cover ${
                   isMobile ? "w-20 h-20" : "w-28 h-28"
@@ -252,19 +258,19 @@ const Sidebar = () => {
             {/* Enhanced Contact Info with progressive animations */}
             <div className="space-y-4 mb-8">
               {contactInfo.map((item, index) => (
-                <motion.div
+                <motion.a
                   key={item.label}
+                  href={item.href}
+                  target={item.type === "location" ? "_blank" : undefined}
+                  rel={
+                    item.type === "location" ? "noopener noreferrer" : undefined
+                  }
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
                     delay: isMobile ? 0.1 + index * 0.1 : 2.5 + index * 0.2,
                   }}
-                  className={`flex items-center p-3 glass rounded-xl transition-all duration-300 group shimmer-effect ${
-                    item.type === "email" || item.type === "phone" 
-                      ? "cursor-pointer contact-item-hover hover:bg-white/10" 
-                      : ""
-                  }`}
-                  onClick={handleContactItemClick}
+                  className="flex items-center p-3 glass rounded-xl transition-all duration-300 group shimmer-effect cursor-pointer hover:bg-white/10"
                 >
                   <motion.div
                     className="gradient-bg p-2 rounded-lg mr-4"
@@ -281,37 +287,11 @@ const Sidebar = () => {
                     <div className="text-xs text-gray-400 uppercase tracking-wider">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium">
-                      {item.type === "phone" ? (
-                        <a
-                          href={`tel:${item.value.replace(/[^+\d]/g, "")}`}
-                          className="hover:text-cyan-400 transition-colors cursor-pointer underline decoration-transparent hover:decoration-cyan-400 transition-all duration-300"
-                          title="Click to call"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            console.log("Phone link clicked:", `tel:${item.value.replace(/[^+\d]/g, "")}`);
-                          }}
-                        >
-                          {item.value}
-                        </a>
-                      ) : item.type === "email" ? (
-                        <a
-                          href={`mailto:${item.value}`}
-                          className="hover:text-cyan-400 transition-colors cursor-pointer underline decoration-transparent hover:decoration-cyan-400 transition-all duration-300"
-                          title="Click to send email"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            console.log("Email link clicked:", `mailto:${item.value}`);
-                          }}
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        item.value
-                      )}
+                    <div className="text-sm font-medium hover:text-cyan-400 transition-colors duration-300">
+                      {item.value}
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
 
