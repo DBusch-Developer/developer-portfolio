@@ -15,6 +15,7 @@ const experience = [
       "Managed database migrations and schema evolution to support feature development while maintaining data integrity and backward compatibility.",
       "Participated in code reviews and refactored architecture based on senior engineer feedback to prevent circular dependencies and improve code maintainability.",
       "Collaborated in Agile environment with cross-functional teams, documented technical implementations, and adapted quickly to evolving product requirements.",
+      "Documenting codebase, APIs, and other technical aspects for future reference and collaboration among team members."
     ],
   },
   {
@@ -25,7 +26,7 @@ const experience = [
     achievements: [
       "Focused on building responsive and accessible user experiences using modern JavaScript frameworks and established design systems.",
       "Engages in daily Agile/Scrum ceremonies, including standups and sprint planning, to maintain alignment and deliver iterative improvements.",
-      "Works closely with cross-disciplinary teams to architect, develop, and launch full-stack applications, such as an AI-driven, voice-enabled assistant.",
+      "Works closely with cross-functional teams to architect, develop, and launch full-stack applications, such as an AI-driven, voice-enabled assistant.",
       "Manages version control through Git and GitHub, performing peer code reviews and supporting efficient, collaborative development practices.",
       "Contributes in team discussions while adapting to shifting priorities, showing initiative and flexibility in tackling diverse responsibilities.",
       "Implemented payment gateway integration like Khalti for secure transactions",

@@ -5,6 +5,7 @@ import { Github, ExternalLink, ImageIcon } from 'lucide-react'
 const ProjectCard = ({ project, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageError, setImageError] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleImageLoad = () => {
     setImageLoaded(true)
@@ -26,11 +27,13 @@ const ProjectCard = ({ project, index }) => {
         ease: "easeOut",
         layout: { duration: 0.3 }
       }}
-      className="glass rounded-2xl overflow-hidden card-hover group relative"
+      className="glass rounded-2xl card-hover group relative"
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
       {/* Project Screenshot Area */}
-      <div className="h-48 relative overflow-hidden bg-gray-800">
+      <div className="h-48 relative overflow-hidden bg-gray-800 rounded-t-2xl">
         {/* Loading Skeleton */}
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 animate-pulse flex items-center justify-center">
@@ -124,7 +127,9 @@ const ProjectCard = ({ project, index }) => {
           </h3>
         </div>
         
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className={`text-gray-400 text-sm leading-relaxed mb-4 transition-all duration-300 ${
+          isHovered ? '' : 'line-clamp-3'
+        }`}>
           {project.description}
         </p>
 
