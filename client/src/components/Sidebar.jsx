@@ -155,7 +155,9 @@ const Sidebar = () => {
           whileTap={{ scale: 0.95 }}
         >
           <div className="w-full h-full rounded-full gradient-bg p-1">
-            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
+            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden"
+             style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+             >
               <img
                 className={`rounded-full object-cover ${
                   isMobile ? "w-20 h-20" : "w-28 h-28"
