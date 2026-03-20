@@ -86,7 +86,7 @@ const Sidebar = () => {
       icon: Mail,
       label: "EMAIL",
       value: "buschdiana007@gmail.com",
-      href: "mailto:buschdiana007@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&to=buschdiana007@gmail.com",
       type: "email",
     },
     {
@@ -261,9 +261,15 @@ const Sidebar = () => {
                 <motion.a
                   key={item.label}
                   href={item.href}
-                  target={item.type === "location" ? "_blank" : undefined}
+                  target={
+                    item.type === "location" || item.type === "email"
+                      ? "_blank"
+                      : undefined
+                  }
                   rel={
-                    item.type === "location" ? "noopener noreferrer" : undefined
+                    item.type === "location" || item.type === "email"
+                      ? "noopener noreferrer"
+                      : undefined
                   }
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
