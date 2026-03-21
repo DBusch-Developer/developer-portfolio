@@ -32,7 +32,7 @@ const projects = [
     color: "from-blue-500 to-purple-600", // Fallback gradient
     technologies: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/DBusch-Developer/next-chapter",
-    liveUrl: "",
+    liveUrl: "https://dbusch-developer.github.io/bust-the-myths/",
     image: "/assets/projects/bust-the-myth.png",
   },
   {
