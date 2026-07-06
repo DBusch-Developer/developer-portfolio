@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, ClipboardCheck } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -25,6 +25,24 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const bookAudit = () => {
+    setFormData((prev) => ({ ...prev, subject: "Free back-office audit" }));
+    const message = document.getElementById("message");
+    if (message) {
+      message.focus();
+      message.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  // Pre-fill the audit request when arriving from an "?audit=1" link.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("audit") === "1") {
+      bookAudit();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -90,6 +108,31 @@ const Contact = () => {
           Have a project in mind or want to collaborate? I'd love to hear from
           you! Send me a message and let's create something amazing together.{" "}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="glass rounded-xl border border-white/20 p-5 mb-8 flex flex-col sm:flex-row sm:items-center gap-4"
+        >
+          <div className="flex-1">
+            <p className="text-white font-medium">Run a local service business?</p>
+            <p className="text-gray-400 text-sm mt-1">
+              Book a free back-office audit — I'll look at how fast your leads hear
+              back, when you last asked for a review, and how old your oldest unpaid
+              invoice is.
+            </p>
+          </div>
+          <Button
+            type="button"
+            variant="secondary"
+            size="small"
+            icon={ClipboardCheck}
+            onClick={bookAudit}
+          >
+            Book a free audit
+          </Button>
+        </motion.div>
 
         <form onSubmit={sendEmail} ref={form} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -12,7 +12,11 @@ import Contact from "./pages/Contact";
 import "./App.css";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState(() => {
+    const section = new URLSearchParams(window.location.search).get("section");
+    const valid = ["about", "resume", "projects", "blog", "contact"];
+    return valid.includes(section) ? section : "about";
+  });
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const renderSection = () => {
