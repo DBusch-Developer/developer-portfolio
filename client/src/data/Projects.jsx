@@ -8,6 +8,7 @@ const projects = [
     color: "from-orange-500 to-red-600", // Fallback gradient
     technologies: ["React", "Vite", "GSAP", "Groq API"],
     githubUrl: "https://github.com/DBusch-Developer/toolbelt",
+    liveUrl: "https://toolbelt-eta.vercel.app/",
     image: "/assets/projects/toolbelt.jpg",
   },
   {
