@@ -1,5 +1,64 @@
 const projects = [
   {
+    title: "Toolbelt - Back-Office Automation Suite",
+    description:
+      "Back-office automation for local service businesses—three small automations that answer every lead in seconds, turn finished jobs into five-star reviews, and chase overdue invoices so you never have to.",
+    category: "Applications",
+    icon: "🧰", // Fallback icon
+    color: "from-orange-500 to-red-600", // Fallback gradient
+    technologies: ["React", "Vite", "GSAP", "Groq API"],
+    githubUrl: "https://github.com/DBusch-Developer/toolbelt",
+    image: "/assets/projects/toolbelt.jpg",
+  },
+  {
+    title: "Canvas Daily - AI Study Companion",
+    description:
+      "A daily companion for students that syncs upcoming Canvas assignments, breaks them down with AI, and answers questions about your course. One day, every class.",
+    category: "Applications",
+    icon: "🎓", // Fallback icon
+    color: "from-indigo-500 to-purple-600", // Fallback gradient
+    technologies: ["Python", "FastAPI", "PostgreSQL", "Groq API"],
+    githubUrl: "https://github.com/DBusch-Developer/canvas-daily",
+    liveUrl: "https://canvas-daily.org/",
+    image: "/assets/projects/canvas-daily.jpg",
+  },
+  {
+    title: "PromptForge - AI Prompt Template Library",
+    description:
+      "An AI prompt template library with 34+ reusable templates across techniques like chain-of-thought, few-shot, and step sequencing. Build, test, and export prompts.",
+    category: "Applications",
+    icon: "⚡", // Fallback icon
+    color: "from-amber-500 to-orange-600", // Fallback gradient
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/DBusch-Developer/PromptForge",
+    liveUrl: "https://prompt-forge-woad-one.vercel.app/",
+    image: "/assets/projects/promptforge.jpg",
+  },
+  {
+    title: "Interview Armor - Developer Interview Trainer",
+    description:
+      "A dojo-themed training ground for developer interviews—draw a question, speak your answer aloud, and get AI coaching on what you actually said, not what you meant to say.",
+    category: "Applications",
+    icon: "🥋", // Fallback icon
+    color: "from-red-500 to-rose-700", // Fallback gradient
+    technologies: ["JavaScript", "HTML", "CSS", "Groq API"],
+    githubUrl: "https://github.com/DBusch-Developer/interview-armor",
+    liveUrl: "https://interview-armor.vercel.app/",
+    image: "/assets/projects/interview-armor.jpg",
+  },
+  {
+    title: "Reset - Anti-Inflammatory Meal Plan",
+    description:
+      "A 14-day anti-inflammatory meal reset—dairy-free and plant-forward with meal browsing and progress tracking. No rigid schedules, just smart options.",
+    category: "Applications",
+    icon: "🥗", // Fallback icon
+    color: "from-green-500 to-emerald-600", // Fallback gradient
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "JWT"],
+    githubUrl: "https://github.com/DBusch-Developer/reset",
+    liveUrl: "https://www.your-reset.life/",
+    image: "/assets/projects/reset.jpg",
+  },
+  {
     title: "Cuttin' Up Community Project - Community Platform",
     description:
       "A website built for Cuttin Up Community Project, a Phoenix-based nonprofit empowering unhoused and justice-impacted individuals through free barbering services, job training, and community support.",
