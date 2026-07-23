@@ -1,4 +1,3 @@
-﻿
 const blogPosts = [
   {
     slug: "next-chapter",
