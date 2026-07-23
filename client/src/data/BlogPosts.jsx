@@ -77,7 +77,7 @@ const blogPosts = [
       },
       {
         type: "image",
-        src: "/assets/blog/turnleaf.jpg",
+        src: "/assets/blog/turnleaf.png",
         alt: "Turnleaf showing a plain-language record-clearing eligibility answer",
         caption: "Turnleaf: one plain answer, and the form to file next.",
       },

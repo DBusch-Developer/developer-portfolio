@@ -6,9 +6,10 @@ const projects = [
     category: "Applications",
     icon: "🍃", // Fallback icon
     color: "from-emerald-500 to-teal-600", // Fallback gradient
-    technologies: ["Next.js", "Neon", "Groq API"],
+    technologies: ["Next.js", "TypeScript", "Neon"],
+    githubUrl: "https://github.com/DBusch-Developer/turnleaf",
     liveUrl: "https://turnleaf.us",
-    image: "/assets/projects/turnleaf.jpg",
+    image: "/assets/projects/turnleaf.png",
   },
   {
     title: "Toolbelt - Back-Office Automation Suite",
