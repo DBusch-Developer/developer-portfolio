@@ -1,5 +1,16 @@
 const projects = [
   {
+    title: "Turnleaf - Criminal Record Clearing Tool",
+    description:
+      "A free tool that tells you whether you're eligible to clear your criminal record in any of the fifty states—in plain language, plus the actual form to file next. Every legal rule verified by hand against the official statute, with each source linked to the .gov page.",
+    category: "Applications",
+    icon: "🍃", // Fallback icon
+    color: "from-emerald-500 to-teal-600", // Fallback gradient
+    technologies: ["Next.js", "Neon", "Groq API"],
+    liveUrl: "https://turnleaf.us",
+    image: "/assets/projects/turnleaf.jpg",
+  },
+  {
     title: "Toolbelt - Back-Office Automation Suite",
     description:
       "Back-office automation for local service businesses—three small automations that answer every lead in seconds, turn finished jobs into five-star reviews, and chase overdue invoices so you never have to.",
