@@ -5,7 +5,7 @@ const blogPosts = [
     date: "July 2026",
     teaser:
       "I finished the Next Chapter AI-Augmented Builder Cohort and shipped more in a few months than in any stretch of my career. That's worth writing down.",
-    coverImage: "/assets/blog/next-chapter-cover.jpg",
+    coverImage: "/assets/blog/next-chapter-cover.png",
     content: [
       {
         type: "paragraph",

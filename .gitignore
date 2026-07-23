@@ -1,1 +1,5 @@
 .vercel
+
+# Playwright MCP scratch
+.playwright-mcp/
+**/.playwright-mcp/
