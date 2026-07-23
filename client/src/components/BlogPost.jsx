@@ -106,7 +106,7 @@ const BlogPost = ({ post, onBack }) => {
       </button>
 
       <div className="rounded-3xl overflow-hidden glass mb-8 relative h-56 md:h-80 bg-gray-800">
-        {!heroLoaded && (
+        {post.coverImage && !heroLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 animate-pulse flex items-center justify-center">
             <ImageIcon size={40} className="text-gray-500" />
           </div>

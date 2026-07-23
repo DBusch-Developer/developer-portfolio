@@ -17,7 +17,7 @@ const BlogCard = ({ post, onOpen, index }) => {
       className="glass rounded-2xl card-hover group relative text-left w-full cursor-pointer overflow-hidden"
     >
       <div className="h-48 relative overflow-hidden bg-gray-800">
-        {!imageLoaded && (
+        {post.coverImage && !imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 animate-pulse flex items-center justify-center">
             <ImageIcon size={32} className="text-gray-500" />
           </div>
