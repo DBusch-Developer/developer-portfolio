@@ -117,18 +117,18 @@ const blogPosts = [
         ],
       },
       {
-        type: "image",
-        src: "/assets/blog/capstone-video.png",
-        alt: "Editing the Turnleaf ad in Premiere Pro—timeline, captions, and the logo on the program monitor",
-        caption: "Learning video production in a week, one beat at a time.",
-      },
-      {
         type: "paragraph",
         content: ["The closing line is the reason the project exists:"],
       },
       {
         type: "callout",
         text: "because a second chance shouldn't require a law degree.",
+      },
+      {
+        type: "image",
+        src: "/assets/blog/capstone-video.png",
+        alt: "Editing the Turnleaf ad in Premiere Pro—timeline, captions, and the logo on the program monitor",
+        caption: "Learning video production in a week, one beat at a time.",
       },
       {
         type: "video",
