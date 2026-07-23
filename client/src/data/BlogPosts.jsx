@@ -25,7 +25,7 @@ const blogPosts = [
         type: "paragraph",
         content: [
           { text: "NewsForge", bold: true },
-          " — an AI news aggregator I built for our Monday presentations, so I could walk in every week already knowing what happened in AI over the weekend. Next.js, Supabase, Groq, deployed on Vercel.",
+          " — an AI news aggregator I built for our weekly presentations, so I could walk in every week already knowing what happened in AI over the weekend. Next.js, Supabase, Groq, deployed on Vercel.",
         ],
       },
       {
@@ -118,8 +118,8 @@ const blogPosts = [
       },
       {
         type: "image",
-        src: "/assets/blog/capstone-video.jpg",
-        alt: "A frame from the Turnleaf capstone demo video",
+        src: "/assets/blog/capstone-video.png",
+        alt: "Editing the Turnleaf ad in Premiere Pro—timeline, captions, and the logo on the program monitor",
         caption: "Learning video production in a week, one beat at a time.",
       },
       {
@@ -130,18 +130,24 @@ const blogPosts = [
         type: "callout",
         text: "because a second chance shouldn't require a law degree.",
       },
+      {
+        type: "video",
+        src: "/assets/blog/turnleaf-ad.mp4",
+        poster: "/assets/blog/turnleaf-ad-poster.jpg",
+        caption: "The finished ad—the six beats, and that closing line.",
+      },
       { type: "heading", text: "The people" },
       {
         type: "paragraph",
         content: [
-          "I expected to leave with projects. I didn't expect to leave with people. My peers pushed me every single week — Monday presentations, honest feedback, watching everyone's work grow alongside mine. My instructor Shahzad believed in Turnleaf early and said so publicly, which mattered more than he probably knows on the days the statute reading felt endless.",
+          "I expected to leave with projects. I didn't expect to leave with people. My peers pushed me every single week — the presentations, honest feedback, watching everyone's work grow alongside mine. My instructor Shahzad believed in Turnleaf early and said so publicly, which mattered more than he probably knows on the days the statute reading felt endless.",
         ],
       },
       {
         type: "image",
         src: "/assets/blog/cohort-classroom.png",
         alt: "The Next Chapter spring cohort together on a video call",
-        caption: "The NC Spring Cohort — Monday presentations, every week.",
+        caption: "The NC Spring Cohort — presentations every week.",
       },
       {
         type: "paragraph",

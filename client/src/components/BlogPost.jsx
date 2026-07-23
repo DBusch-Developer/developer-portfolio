@@ -50,6 +50,28 @@ const PostImage = ({ block }) => {
   );
 };
 
+const PostVideo = ({ block }) => (
+  <figure className="my-8">
+    <div className="rounded-2xl overflow-hidden glass">
+      <video
+        controls
+        preload="metadata"
+        poster={block.poster}
+        className="w-full h-auto block"
+      >
+        <source src={block.src} type="video/mp4" />
+        Your browser doesn&apos;t support embedded video. You can watch it at{" "}
+        <a href={block.src}>{block.src}</a>.
+      </video>
+    </div>
+    {block.caption && (
+      <figcaption className="text-center text-sm text-gray-500 mt-3">
+        {block.caption}
+      </figcaption>
+    )}
+  </figure>
+);
+
 const Block = ({ block }) => {
   switch (block.type) {
     case "heading":
@@ -80,6 +102,8 @@ const Block = ({ block }) => {
       );
     case "image":
       return <PostImage block={block} />;
+    case "video":
+      return <PostVideo block={block} />;
     case "montage":
       return <BlogMontage />;
     default:
