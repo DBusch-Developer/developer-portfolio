@@ -1,8 +1,50 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { PenTool } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import blogPosts from "../data/BlogPosts";
+import BlogCard from "../components/BlogCard";
+import BlogPost from "../components/BlogPost";
+
+const slugFromUrl = () =>
+  new URLSearchParams(window.location.search).get("post");
 
 const Blog = () => {
+  const [selectedSlug, setSelectedSlug] = useState(() => {
+    const slug = slugFromUrl();
+    return blogPosts.some((p) => p.slug === slug) ? slug : null;
+  });
+
+  useEffect(() => {
+    const onPop = () => {
+      const slug = slugFromUrl();
+      setSelectedSlug(blogPosts.some((p) => p.slug === slug) ? slug : null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  const openPost = (slug) => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("section", "blog");
+    params.set("post", slug);
+    window.history.pushState({}, "", `?${params.toString()}`);
+    setSelectedSlug(slug);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const closePost = () => {
+    const params = new URLSearchParams(window.location.search);
+    params.delete("post");
+    window.history.pushState({}, "", `?${params.toString()}`);
+    setSelectedSlug(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const selectedPost = blogPosts.find((p) => p.slug === selectedSlug);
+
+  if (selectedPost) {
+    return <BlogPost post={selectedPost} onBack={closePost} />;
+  }
+
   return (
     <div>
       <motion.h2
@@ -19,58 +61,18 @@ const Blog = () => {
         />
       </motion.h2>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="text-center py-20"
-      >
-        <motion.div
-          animate={{ 
-            rotate: [0, 10, -10, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-          className="text-8xl mb-8"
-        >
-          📝
-        </motion.div>
-        
-        <motion.h3
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-3xl font-bold text-gray-400 mb-4"
-        >
-          Coming Soon
-        </motion.h3>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="text-gray-500 text-lg max-w-md mx-auto leading-relaxed"
-        >
-          I'm working on some amazing blog posts about web development, mobile apps, and tech insights. 
-          Stay tuned for exciting content!
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="mt-8 flex items-center justify-center gap-2 text-cyan-400"
-        >
-          <PenTool size={20} />
-          <span className="font-medium">Articles in progress...</span>
-        </motion.div>
-      </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {blogPosts.map((post, index) => (
+          <BlogCard
+            key={post.slug}
+            post={post}
+            index={index}
+            onOpen={openPost}
+          />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;
